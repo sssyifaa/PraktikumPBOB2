@@ -61,6 +61,11 @@ public class Garis {
     public double getGradien(){
         double dx = titikAkhir.getAbsis() - titikAwal.getAbsis();
         double dy = titikAkhir.getOrdinat() - titikAwal.getOrdinat();
+
+        // kalau garis vertikal 
+        if (dx == 0) {
+            return Double.POSITIVE_INFINITY; 
+        }
         return dy/dx;
     }
 
@@ -89,14 +94,20 @@ public class Garis {
 
     // Mengembalikan persamaan garis dalam bentuk y = mx + c
     public String getPersamaanGaris(){
-        double m = getGradien();
-        double c = titikAwal.getOrdinat() - m * titikAwal.getAbsis();
+        double x1 = titikAwal.getAbsis();
+        double y1 = titikAwal.getOrdinat();
+        double x2 = titikAkhir.getAbsis();
+        double y2 = titikAkhir.getOrdinat();
 
-        if (c>= 0){
-            return "y = " + m + "x + " + c;
-        } else {
-            return "y = " + m + "x - " + Math.abs(c);
+        // Jika garis vertikal
+        if (x1 == x2) {
+            return "x = " + x1;
         }
+
+        double m = (y2 - y1) / (x2 - x1);
+        double c = y1 - m * x1;
+
+        return "y = " + m + "x + " + c;
     }
 
 }
