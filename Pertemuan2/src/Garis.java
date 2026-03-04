@@ -66,6 +66,10 @@ public class Garis {
         if (dx == 0) {
             return Double.POSITIVE_INFINITY; 
         }
+<<<<<<< HEAD
+=======
+        
+>>>>>>> 5f6f91955efd5d3514622ec9ddbe169a33c0e5f2
         return dy/dx;
     }
 
